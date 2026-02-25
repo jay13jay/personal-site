@@ -1,0 +1,21 @@
+# Hugo default output
+public/
+resources/
+_vendor/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Migration output
+output/
+
+# Node modules
+node_modules/
+.npx/
