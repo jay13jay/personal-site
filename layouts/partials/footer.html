@@ -1,14 +1,14 @@
 <!-- Footer -->
 <footer class="mt-32 text-center">
     <div class="max-w-3xl mx-auto">
-        <div class="border-t border-border-primary-light dark:border-border-primary-dark pt-5">
+        <div class="border-t border-cerulean-border pt-5">
             <div class="flex flex-col items-center justify-center gap-2">
-                {{ $authorData := index site.Data .Language.Lang "author" }}                
+                {{ $authorData := index site.Data .Language.Lang "author" }}
                 {{ $author := site.Params }}
                 {{ if and $authorData $authorData.author }}{{ $author = $authorData.author }}{{ end }}
                 {{ with $author }}
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm ">© {{ now.Format "2006" }} {{ .name }}</p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm pb-12">{{ T "builtUsing" }} <a href="https://gohugo.io/" target="_blank" class="animated-link text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">Hugo</a>. {{ T "takeALookAtMy" }} <a href="{{ .github }}" target="_blank" class="animated-link text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">GitHub</a></p>
+                <p class="text-text-secondary-dark text-xm ">© {{ now.Format "2006" }} {{ .name }}</p>
+                <p class="text-text-secondary-dark text-xm pb-12">{{ T "builtUsing" }} <a href="https://gohugo.io/" target="_blank" class="animated-link hover:text-light">Hugo</a>. {{ T "takeALookAtMy" }} <a href="{{ .github }}" target="_blank" class="animated-link hover:text-light">GitHub</a></p>
                 {{ end }}
             </div>
         </div>
@@ -20,23 +20,27 @@
         position: relative;
         display: inline-flex;
         align-items: center;
+        color: #007ea7;
+        transition: all 0.3s ease-in-out;
     }
     
     .animated-link::after {
         content: '';
         position: absolute;
         width: 0;
-        height: 1px;
-        bottom: -1px;
+        height: 2px;
+        bottom: -3px;
         left: 0;
-        background-color: #0284c7; /* accent-light (sky-600) */
+        background: linear-gradient(to right, #007ea7, #ff9f1c);
+        box-shadow: 0 0 8px rgba(0, 126, 167, 0.5);
         transition: width 0.3s ease-in-out;
+    }
+
+    .animated-link:hover {
+        text-shadow: 0 0 8px rgba(0, 126, 167, 0.6);
     }
     
     .animated-link:hover::after {
         width: 100%;
-    }
-    html.dark .animated-link::after {
-        background-color: #0ea5e9; /* accent-dark (sky-500) */
     }
 </style> 

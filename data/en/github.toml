@@ -1,0 +1,100 @@
+[profile]
+login = "jay13jay"
+name = "Josh"
+company = "JHAX, LLC"
+location = "Washington, D.C."
+bio = "Full stack developer with an operations and infrastructure background"
+html_url = "https://github.com/jay13jay"
+public_repos = 91
+followers = 7
+following = 3
+updated_at = "2026-02-24T23:48:31Z"
+
+[[pinned]]
+name = "hcFront"
+name_with_owner = "jay13jay/hcFront"
+description = "Hax Chat frontend written in react"
+url = "https://github.com/jay13jay/hcFront"
+stars = 0
+forks = 0
+primary_language = "JavaScript"
+
+[[pinned]]
+name = "kDay_react"
+name_with_owner = "jay13jay/kDay_react"
+description = "Virtual birthday card"
+url = "https://github.com/jay13jay/kDay_react"
+stars = 0
+forks = 0
+primary_language = "JavaScript"
+
+[[pinned]]
+name = "learngo_jhax"
+name_with_owner = "jay13jay/learngo_jhax"
+description = "1000+ Hand-Crafted Go Examples, Exercises, and Quizzes"
+url = "https://github.com/jay13jay/learngo_jhax"
+stars = 0
+forks = 0
+primary_language = "Go"
+
+[[pinned]]
+name = "Password-Generator"
+name_with_owner = "jay13jay/Password-Generator"
+description = "A Python script for generating random passwords"
+url = "https://github.com/jay13jay/Password-Generator"
+stars = 0
+forks = 0
+primary_language = "Python"
+
+[[pinned]]
+name = "jqueue"
+name_with_owner = "jay13jay/jqueue"
+description = "golang queue implementation"
+url = "https://github.com/jay13jay/jqueue"
+stars = 0
+forks = 0
+primary_language = "Go"
+
+[[languages]]
+name = "Python"
+count = 16
+
+[[languages]]
+name = "Go"
+count = 15
+
+[[languages]]
+name = "JavaScript"
+count = 11
+
+[[languages]]
+name = "HTML"
+count = 4
+
+[[languages]]
+name = "HCL"
+count = 4
+
+[[languages]]
+name = "C++"
+count = 4
+
+[[languages]]
+name = "Shell"
+count = 3
+
+[[languages]]
+name = "Ruby"
+count = 3
+
+[[languages]]
+name = "CSS"
+count = 3
+
+[[languages]]
+name = "TypeScript"
+count = 2
+
+[[languages]]
+name = "PHP"
+count = 2

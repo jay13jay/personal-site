@@ -1,0 +1,74 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-2/3 mx-auto py-12 px-6 specular-overlay">
+    <article class="sacred-card p-6 md:p-8">
+        {{ if eq .Section "posts" }}
+            <div class="mb-8">
+                <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-text-secondary-dark text-sm block mb-4">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+                {{ if .Params.tags }}
+                <div class="flex flex-wrap gap-2">
+                    {{ range .Params.tags }}
+                    <span class="px-3 py-1 bg-bg-tertiary-dark border border-cerulean-border rounded-md text-xs font-medium text-light">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        {{ end }}
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-light glow-text">{{ .Title }}</h1>
+
+        <!-- Cover image with smart glow if present -->
+        {{ if .Params.coverImage }}
+        <div class="mb-8 smart-glow rounded-lg overflow-hidden">
+            <img src="{{ .Page.RelPermalink }}{{ .Params.coverImage }}" alt="{{ .Title }}" class="w-full h-auto" style="background-image: url('{{ .Page.RelPermalink }}{{ .Params.coverImage }}');">
+        </div>
+        {{ end }}
+
+        <!-- Main content with prose styling -->
+        <div class="prose prose-dark max-w-none">
+            {{ .Content }}
+        </div>
+
+        <!-- Footer metadata -->
+        {{ if eq .Section "posts" }}
+        <div class="mt-12 pt-8 border-t border-cerulean-border text-text-secondary-dark text-sm">
+            <p>Published on <time>{{ .Date.Format "January 2, 2006" }}</time></p>
+            {{ if .Params.tags }}
+            <p class="mt-2">Tags: 
+                {{ range $index, $tag := .Params.tags }}
+                <span class="text-accent-dark">{{ $tag }}</span>{{ if lt (add $index 1) (len $.Params.tags) }}, {{ end }}
+                {{ end }}
+            </p>
+            {{ end }}
+        </div>
+        {{ end }}
+    </article>
+
+    <!-- Navigation to other posts -->
+    {{ if eq .Section "posts" }}
+    <nav class="mt-12 flex justify-between gap-4 max-w-none">
+        {{ $prev := .PrevInSection }}
+        {{ $next := .NextInSection }}
+        
+        {{ if $prev }}
+        <a href="{{ $prev.Permalink }}" class="flex-1 p-4 sacred-card hover:border-amber transition-colors text-left group">
+            <span class="text-text-secondary-dark text-sm">← Previous</span>
+            <h3 class="text-lg font-semibold text-light group-hover:text-glow transition-all mt-1">{{ $prev.Title }}</h3>
+        </a>
+        {{ else }}
+        <div class="flex-1"></div>
+        {{ end }}
+
+        {{ if $next }}
+        <a href="{{ $next.Permalink }}" class="flex-1 p-4 sacred-card hover:border-amber transition-colors text-right group">
+            <span class="text-text-secondary-dark text-sm">Next →</span>
+            <h3 class="text-lg font-semibold text-light group-hover:text-glow transition-all mt-1">{{ $next.Title }}</h3>
+        </a>
+        {{ else }}
+        <div class="flex-1"></div>
+        {{ end }}
+    </nav>
+    {{ end }}
+</div>
+{{ end }}

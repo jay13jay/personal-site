@@ -1,0 +1,71 @@
+[[groups]]
+title = "Platform Engineering"
+
+  [[groups.items]]
+  name = "Kubernetes (EKS)"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Terraform"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "GitOps (ArgoCD)"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Helm"
+  level = "Advanced"
+
+[[groups]]
+title = "Cloud & Reliability"
+
+  [[groups.items]]
+  name = "AWS (VPC, IAM, EC2, RDS/Aurora)"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Observability (Prometheus/Grafana)"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "SLA/SLO & Incident Command"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "PostgreSQL Reliability"
+  level = "Working"
+
+[[groups]]
+title = "Automation & Delivery"
+
+  [[groups.items]]
+  name = "Python Automation"
+  level = "Working"
+
+  [[groups.items]]
+  name = "CI/CD"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Ansible"
+  level = "Working"
+
+  [[groups.items]]
+  name = "Docker"
+  level = "Working"
+
+[[groups]]
+title = "Leadership"
+
+  [[groups.items]]
+  name = "Team Leadership (6+ reports)"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Stakeholder Communication"
+  level = "Advanced"
+
+  [[groups.items]]
+  name = "Runbooks & RCA Ownership"
+  level = "Advanced"

@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-2/3 mx-auto px-6 py-12 specular-overlay">
+    <h1 class="text-4xl md:text-5xl font-bold mb-12 text-light glow-text">{{ .Title }}</h1>
+    
+    <div class="space-y-6">
+        {{ range .Pages }}
+        <article class="sacred-card p-6">
+            <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-text-secondary-dark text-sm block mb-2">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+            
+            <h2 class="text-2xl md:text-3xl font-bold mb-3">
+                <a href="{{ .RelPermalink }}" class="text-accent-dark hover:text-light transition-colors duration-300 hover:glow-text">
+                    {{ .Title }}
+                </a>
+            </h2>
+            
+            {{ if .Description }}
+            <p class="text-light leading-relaxed mb-4">{{ .Description }}</p>
+            {{ end }}
+
+            <div class="flex items-center justify-between mt-4 pt-4 border-t border-cerulean-border">
+                {{ if .Params.tags }}
+                <div class="flex flex-wrap gap-2">
+                    {{ range first 3 .Params.tags }}
+                    <span class="px-2 py-1 bg-bg-tertiary-dark border border-cerulean-border rounded text-xs font-medium text-light">
+                        {{ . }}
+                    </span>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                <a href="{{ .RelPermalink }}" class="text-accent-dark hover:text-light text-sm font-medium transition-colors duration-300 ml-auto">
+                    Read More →
+                </a>
+            </div>
+        </article>
+        {{ end }}
+    </div>
+
+    <!-- Pagination -->
+    {{ if or .Paginator.HasPrev .Paginator.HasNext }}
+    <nav class="mt-16 flex justify-center gap-4">
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="px-6 py-2 sacred-card hover:border-amber transition-colors text-light">
+            ← Previous
+        </a>
+        {{ end }}
+
+        <div class="flex items-center text-text-secondary-dark">
+            Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+        </div>
+
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="px-6 py-2 sacred-card hover:border-amber transition-colors text-light">
+            Next →
+        </a>
+        {{ end }}
+    </nav>
+    {{ end }}
+</div>
+{{ end }}

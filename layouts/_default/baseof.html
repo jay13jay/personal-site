@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +14,18 @@
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
         <style>
             html, body {
-                background-color: #FFFFFF; 
-                color: #1f2937; 
+                background-color: #011627;
+                color: #f5f9ff;
+                /* Layered radial gradients give the backdrop-filter blur tangible
+                   depth — without them the frosted glass effect is invisible. */
+                background-image:
+                    radial-gradient(ellipse 80% 50% at 20% 10%,  rgba(0,126,167,0.14) 0%, transparent 70%),
+                    radial-gradient(ellipse 60% 40% at 80% 80%,  rgba(0,126,167,0.10) 0%, transparent 70%),
+                    radial-gradient(ellipse 40% 60% at 50% 40%,  rgba(1, 34, 58, 0.9) 0%, transparent 100%);
+                background-attachment: fixed;
             }
-            html.dark, html.dark body {
-                background-color: #121212; 
-                color: #f3f4f6; 
-            }
-            .border { 
-                border-color: #d4d4d8; 
-            }
-            html.dark .border {
-                border-color: #374151; 
+            .border {
+                border-color: rgba(0, 126, 167, 0.25);
             }
             .carousel-item {
                 display: none;
@@ -38,53 +38,36 @@
         <script>
             tailwind.config = {
                 darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            'bg-primary-dark': '#011627',
+                            'bg-secondary-dark': '#021b2e',
+                            'bg-tertiary-dark': '#03233a',
+                            'text-primary-dark': '#f5f9ff',
+                            'text-secondary-dark': 'rgba(245, 249, 255, 0.6)',
+                            'border-primary-dark': 'rgba(0, 126, 167, 0.35)',
+                            'border-secondary-dark': 'rgba(0, 126, 167, 0.25)',
+                            'accent-dark': '#007ea7',
+                            /* Tokens used in partials */
+                            'cerulean': '#007ea7',
+                            'cerulean-border': 'rgba(0, 126, 167, 0.25)',
+                            'amber': '#ff9f1c',
+                            'light': '#f5f9ff'
+                        }
+                    }
+                }
             }
         </script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-        <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+        {{ $css := resources.Get "css/custom.css" }}
+        {{ with $css }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
     </head>
-    <body class="flex flex-col min-h-screen bg-white dark:bg-[#121212] transition-colors duration-300">
+    <body class="flex flex-col min-h-screen bg-bg-primary-dark transition-colors duration-300">
         {{ partial "header.html" . }}
-        <main class="flex-grow container mx-auto px-4 py-8">
+        <main class="flex-grow container mx-auto px-4 py-8 specular-overlay">
             {{ block "main" . }}{{ end }}
         </main>
         {{ partial "footer.html" . }}
-        <script>
-            // Dark mode toggle logic
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                themeToggleLightIcon.classList.remove('hidden');
-            } else {
-                document.documentElement.classList.remove('dark');
-                themeToggleDarkIcon.classList.remove('hidden');
-            }
-
-            themeToggleBtn.addEventListener('click', function() {
-                themeToggleDarkIcon.classList.toggle('hidden');
-                themeToggleLightIcon.classList.toggle('hidden');
-
-                if (localStorage.getItem('color-theme')) {
-                    if (localStorage.getItem('color-theme') === 'light') {
-                        document.documentElement.classList.add('dark');
-                        localStorage.setItem('color-theme', 'dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                        localStorage.setItem('color-theme', 'light');
-                    }
-                } else {
-                    if (document.documentElement.classList.contains('dark')) {
-                        document.documentElement.classList.remove('dark');
-                        localStorage.setItem('color-theme', 'light');
-                    } else {
-                        document.documentElement.classList.add('dark');
-                        localStorage.setItem('color-theme', 'dark');
-                    }
-                }
-            });
-        </script>
     </body>
 </html>

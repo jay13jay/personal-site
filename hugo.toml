@@ -1,6 +1,6 @@
-baseURL = 'https://jk4y.com/'
+baseURL = 'https://emergent-rva.com/'
 languageCode = 'en-us'
-title = 'jk4y.com'
+title = 'emergent-rva.com'
 theme = 'hugo-noir'
 
 defaultContentLanguage = "en"
@@ -13,11 +13,11 @@ defaultContentLanguageInSubdir = false
     weight = 1
 
 [params]
-    name = "jk4y"
+    name = "emergent-rva"
     description = "Personal website, digital resume, and blog."
     profile_image = "/images/profile.jpg"
     github = "https://github.com/jay13jay"
-    email = "josh@jk4y.com"
+    email = "josh@emergent-rva.com"
 
 [menu]
   [[menu.main]]
