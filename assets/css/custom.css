@@ -198,6 +198,48 @@ h2 {
   border-top-color: rgba(255, 159, 28, 0.55);
 }
 
+/* Geometric curve pattern overlay for cards */
+.sacred-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+  background-image: 
+    repeating-radial-gradient(
+      circle at 0 0, 
+      transparent 0, 
+      rgba(0, 151, 196, 0.06) 14px, 
+      transparent 15px, 
+      transparent 30px
+    ),
+    repeating-radial-gradient(
+      circle at 100% 0, 
+      transparent 0, 
+      rgba(0, 151, 196, 0.06) 14px, 
+      transparent 15px, 
+      transparent 30px
+    ),
+    repeating-radial-gradient(
+      circle at 0 100%, 
+      transparent 0, 
+      rgba(0, 151, 196, 0.06) 14px, 
+      transparent 15px, 
+      transparent 30px
+    ),
+    repeating-radial-gradient(
+      circle at 100% 100%, 
+      transparent 0, 
+      rgba(0, 151, 196, 0.06) 14px, 
+      transparent 15px, 
+      transparent 30px
+    );
+  /* Fade the pattern slightly towards the center to keep text highly readable */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 0%, rgba(0,0,0,1) 80%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 0%, rgba(0,0,0,1) 80%);
+}
+
 /* .skills-glow-card is now a plain style pass-through;            */
 /* the ambient outer halo lives on the .card-glow-wrapper instead. */
 .skills-glow-card {

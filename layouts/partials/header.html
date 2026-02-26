@@ -49,8 +49,8 @@
                 {{ $author := site.Params }}
                 {{ if and $authorData $authorData.author }}{{ $author = $authorData.author }}{{ end }}
                 {{ with $author }}
-                <a href="{{ absLangURL .Site.BaseURL }}" class="text-xl font-bold text-text-primary-dark hover:text-accent-dark transition-colors duration-300 glow-text">
-                    {{ .name }}
+                <a href="{{ "/" | absLangURL }}" class="text-xl font-bold text-text-primary-dark hover:text-accent-dark transition-colors duration-300 glow-text">
+                    {{ default .name .company }}
                 </a>
                 {{ end }}
                 <!-- Hamburger menu button for mobile -->

@@ -1,5 +1,13 @@
 [author]
-  name = "emergent-rva"
+  name = "Josh Hackney"
+  company = "Coalescent Emergence"
+  tagline = "AI Infrastructure & Distributed Systems Engineer | Kubernetes & LLMOps | Go | Orchestrating Production AI"
+  location = "Lakewood, Washington (greater Seattle area)"
+  bio = """
+I design and orchestrate intelligent systems that move ideas from concept to production with uncommon speed and reliability. My work sits at the intersection of modern AI/LLM capability and timeless distributed-systems engineering: Kubernetes-native architectures, resilient service meshes, secure CI/CD, and automation that reduces human toil rather than amplifying it.
+
+What differentiates my work is synthesis. I connect disciplines that are usually siloed—AI, DevOps, product, and operations—so systems behave coherently under real-world pressure. I'm drawn to problems where intelligence, autonomy, and reliability converge. If you’re working on something ambitious at that edge—let’s talk.
+"""
   description = "Personal website, digital resume, and blog."
   github = "https://github.com/jay13jay"
-  email = "josh@emergent-rva.com"
+  linkedin = "https://www.linkedin.com/in/josh-hackney"

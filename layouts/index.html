@@ -13,11 +13,31 @@
         <div class="max-w-3xl ml-0 p-4 pb-2 sacred-card relative">
             <div class="text-left">
                 <h1 class="text-4xl font-bold mb-2 text-text-primary-dark glow-text">{{ .name }}</h1>
-                <p class="text-text-secondary-dark mb-3 flex items-center text-xl">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="text-text-secondary-dark" width="24" height="24" viewBox="-7 -2 24 24"><path fill="currentColor" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
-                    {{ .location }}
+                {{ with .tagline }}
+                <h2 class="text-xl font-semibold mb-4 text-accent-dark">{{ . }}</h2>
+                {{ end }}
+                {{ with .location }}
+                <p class="text-text-secondary-dark mb-4 flex items-center text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 text-text-secondary-dark" width="20" height="20" viewBox="-7 -2 24 24"><path fill="currentColor" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
+                    {{ . }}
                 </p>
+                {{ end }}
+                {{ with .bio }}
+                <div class="text-lg mb-8 text-text-primary-dark prose prose-invert max-w-none">
+                    {{ . | markdownify }}
+                </div>
+                {{ else }}
                 <p class="text-xl mb-6 text-text-primary-dark">{{ .description }}</p>
+                {{ end }}
+                
+                {{ with .linkedin }}
+                <div class="mt-2 mb-8">
+                    <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-5 py-2.5 bg-bg-tertiary-dark border border-border-secondary-dark hover:border-accent-dark text-text-primary-dark font-medium rounded-lg transition-all shadow-sm hover:shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="mr-2 text-[#0a66c2]"><path fill="currentColor" d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/></svg>
+                        Message me on LinkedIn
+                    </a>
+                </div>
+                {{ end }}
             </div>
             <!-- Social Icons - Moved to bottom for mobile -->
             <div class="mt-8 md:mt-0 flex flex-wrap justify-center gap-3 md:absolute md:top-4 md:right-4 md:flex-nowrap md:justify-end md:mt-0">
