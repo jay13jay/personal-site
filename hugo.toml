@@ -32,6 +32,10 @@ defaultContentLanguageInSubdir = false
     name = "Contact"
     url = "/contact"
     weight = 3
+  [[menu.main]]
+    name = "MVP Status"
+    url = "/mvp-status/"
+    weight = 4
 
 [taxonomies]
   category = "categories"
