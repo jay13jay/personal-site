@@ -11,6 +11,7 @@ tags:
   - "convergence"
   - "kerrigan"
 description: "How we used 70-year-old planning theory to guarantee that an LLM-powered documentation system will always finish its job — and why this matters far beyond healthcare."
+math: true
 ---
 
 *How we used 70-year-old planning theory to guarantee that an LLM-powered documentation system will always finish its job — and why this matters far beyond healthcare.*

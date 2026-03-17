@@ -60,6 +60,22 @@
             }
         </script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        {{ if .Params.math }}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+        <style>
+            .katex-display {
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 0.5rem 0;
+            }
+
+            .katex {
+                color: inherit;
+            }
+        </style>
+        {{ end }}
         {{ $css := resources.Get "css/custom.css" }}
         {{ with $css }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
     </head>
@@ -69,5 +85,35 @@
             {{ block "main" . }}{{ end }}
         </main>
         {{ partial "footer.html" . }}
+        {{ if .Params.math }}
+        <script>
+            window.addEventListener('load', function () {
+                var attempts = 0;
+
+                function renderPageMath() {
+                    if (typeof renderMathInElement !== 'function') {
+                        attempts += 1;
+                        if (attempts < 20) {
+                            window.setTimeout(renderPageMath, 100);
+                        }
+                        return;
+                    }
+
+                    renderMathInElement(document.body, {
+                        delimiters: [
+                            { left: '$$', right: '$$', display: true },
+                            { left: '\\[', right: '\\]', display: true },
+                            { left: '$', right: '$', display: false },
+                            { left: '\\(', right: '\\)', display: false }
+                        ],
+                        throwOnError: false,
+                        ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                    });
+                }
+
+                renderPageMath();
+            });
+        </script>
+        {{ end }}
     </body>
 </html>
