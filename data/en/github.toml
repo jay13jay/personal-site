@@ -6,10 +6,10 @@ location = "Washington, D.C."
 bio = "Full stack developer with an operations and infrastructure background"
 html_url = "https://github.com/jay13jay"
 public_repos = 90
-followers = 7
+followers = 8
 following = 3
 updated_at = "2026-03-06T18:01:16Z"
-generated_at = "2026-03-16T12:19:04Z"
+generated_at = "2026-03-23T12:17:56Z"
 
 [[pinned]]
 name = "hcFront"
