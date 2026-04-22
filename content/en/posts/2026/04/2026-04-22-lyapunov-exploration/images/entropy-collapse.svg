@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'SF Mono', 'Fira Code', 'Consolas', monospace">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <filter id="glow4">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" fill="url(#bg4)" rx="12"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="bold">Entropy Collapse: Reachable States Halve With Each Advance</text>
+  <text x="360" y="56" text-anchor="middle" fill="#8b949e" font-size="12">Each covered property eliminates half of all possible final states</text>
+
+  <!-- Funnel stages -->
+  <g transform="translate(60, 80)">
+
+    <!-- Stage 0: 2^8 = 256 -->
+    <rect x="0" y="0" width="600" height="38" rx="6" fill="#388bfd15" stroke="#388bfd" stroke-width="1.5"/>
+    <text x="300" y="17" text-anchor="middle" fill="#388bfd" font-size="12" font-weight="bold">2⁸ = 256 reachable states</text>
+    <text x="300" y="32" text-anchor="middle" fill="#8b949e" font-size="10">H = 8 bits — maximum uncertainty — w(s) = 0</text>
+
+    <!-- Stage 1: 128 -->
+    <rect x="38" y="48" width="524" height="38" rx="6" fill="#8957e515" stroke="#8957e5" stroke-width="1.5"/>
+    <text x="300" y="65" text-anchor="middle" fill="#a371f7" font-size="12" font-weight="bold">2⁷ = 128 reachable states</text>
+    <text x="300" y="80" text-anchor="middle" fill="#8b949e" font-size="10">H = 7 bits — first property covered — w(s) = 1</text>
+
+    <!-- Stage 2: 64 -->
+    <rect x="75" y="96" width="450" height="38" rx="6" fill="#8957e510" stroke="#8957e580" stroke-width="1.5"/>
+    <text x="300" y="113" text-anchor="middle" fill="#a371f780" font-size="12" font-weight="bold">2⁶ = 64 reachable states</text>
+    <text x="300" y="128" text-anchor="middle" fill="#8b949e" font-size="10">H = 6 bits — w(s) = 2</text>
+
+    <!-- Ellipsis -->
+    <text x="300" y="154" text-anchor="middle" fill="#484f58" font-size="18">⋮</text>
+
+    <!-- Stage 6: 4 -->
+    <rect x="210" y="168" width="180" height="38" rx="6" fill="#f0883e15" stroke="#f0883e80" stroke-width="1.5"/>
+    <text x="300" y="185" text-anchor="middle" fill="#f0883e" font-size="12" font-weight="bold">2² = 4 reachable states</text>
+    <text x="300" y="200" text-anchor="middle" fill="#8b949e" font-size="10">H = 2 bits — w(s) = 6</text>
+
+    <!-- Stage 7: 2 -->
+    <rect x="240" y="216" width="120" height="38" rx="6" fill="#f8514930" stroke="#f85149" stroke-width="1.5"/>
+    <text x="300" y="233" text-anchor="middle" fill="#f85149" font-size="12" font-weight="bold">2¹ = 2 states</text>
+    <text x="300" y="248" text-anchor="middle" fill="#8b949e" font-size="10">H = 1 bit — w(s) = 7</text>
+
+    <!-- Stage 8: 1 (DONE) -->
+    <g filter="url(#glow4)">
+      <rect x="270" y="264" width="60" height="38" rx="6" fill="#3fb95030" stroke="#3fb950" stroke-width="2"/>
+      <text x="300" y="281" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="bold">1</text>
+      <text x="300" y="296" text-anchor="middle" fill="#3fb950" font-size="10">H = 0</text>
+    </g>
+  </g>
+
+  <!-- Right-side annotations -->
+  <g transform="translate(600, 80)">
+    <!-- Half arrows -->
+    <text x="30" y="39" fill="#8b949e" font-size="10">÷ 2</text>
+    <text x="30" y="87" fill="#8b949e" font-size="10">÷ 2</text>
+    <text x="30" y="135" fill="#8b949e" font-size="10">÷ 2</text>
+    <text x="30" y="231" fill="#8b949e" font-size="10">÷ 2</text>
+    <text x="30" y="279" fill="#8b949e" font-size="10">÷ 2</text>
+  </g>
+
+  <!-- Bottom callout -->
+  <rect x="100" y="360" width="520" height="44" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="360" y="379" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="bold">Zero entropy = zero uncertainty = exactly one outcome = DONE</text>
+  <text x="360" y="395" text-anchor="middle" fill="#8b949e" font-size="10">The system has collapsed from 256 possible documents to exactly 1 complete document.</text>
+</svg>

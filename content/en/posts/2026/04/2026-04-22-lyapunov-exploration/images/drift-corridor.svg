@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="corridor-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3fb950" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#3fb950" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#3fb950" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="300" fill="#011627" rx="10"/>
+  
+  <!-- The Corridor -->
+  <rect x="50" y="80" width="700" height="140" fill="url(#corridor-grad)" stroke="#3fb950" stroke-dasharray="10 5" opacity="0.3"/>
+  <text x="400" y="70" fill="#3fb950" font-family="sans-serif" font-size="12" text-anchor="middle" font-weight="bold">THE CORRIDOR OF GROUNDED TRUTH</text>
+  
+  <!-- Path 1: Plausibility (Hallucination) -->
+  <path d="M50,150 C150,150 250,220 400,260 S600,280 750,290" fill="none" stroke="#f85149" stroke-width="3" stroke-dasharray="5 5">
+    <animate attributeName="stroke-dashoffset" from="0" to="50" dur="3s" repeatCount="indefinite"/>
+  </path>
+  <text x="650" y="270" fill="#f85149" font-family="sans-serif" font-size="12" font-weight="bold">Statistical Plausibility (Drift)</text>
+  
+  <!-- Path 2: Stability-Guided -->
+  <path d="M50,150 L150,120 L250,180 L350,130 L450,170 L550,140 L750,150" fill="none" stroke="#3fb950" stroke-width="3">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="4s" repeatCount="indefinite"/>
+  </path>
+  <text x="650" y="130" fill="#3fb950" font-family="sans-serif" font-size="12" font-weight="bold">Stability-Guided (Anchored)</text>
+  
+  <!-- Labels -->
+  <text x="60" y="145" fill="#f5f9ff" font-family="sans-serif" font-size="10">START</text>
+</svg>

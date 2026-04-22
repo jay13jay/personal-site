@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <filter id="glow-lattice" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="path-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#0097c4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="#011627" rx="10"/>
+
+  <!-- LEFT SIDE: Simple n=3 -->
+  <g transform="translate(50, 80)">
+    <text x="150" y="-30" fill="#f5f9ff" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">SIMPLE (n=3)</text>
+    <text x="150" y="-10" fill="#f5f9ff" font-family="sans-serif" font-size="12" text-anchor="middle" opacity="0.5">8 States | Clear Paths</text>
+    
+    <!-- Edges -->
+    <g stroke="#0097c4" stroke-width="1" opacity="0.3">
+      <line x1="150" y1="20" x2="70" y2="100"/>
+      <line x1="150" y1="20" x2="150" y2="100"/>
+      <line x1="150" y1="20" x2="230" y2="100"/>
+      
+      <line x1="70" y1="100" x2="70" y2="180"/>
+      <line x1="70" y1="100" x2="150" y2="180"/>
+      <line x1="150" y1="100" x2="70" y2="180"/>
+      <line x1="150" y1="100" x2="230" y2="180"/>
+      <line x1="230" y1="100" x2="150" y2="180"/>
+      <line x1="230" y1="100" x2="230" y2="180"/>
+      
+      <line x1="70" y1="180" x2="150" y2="260"/>
+      <line x1="150" y1="180" x2="150" y2="260"/>
+      <line x1="230" y1="180" x2="150" y2="260"/>
+    </g>
+    
+    <!-- Highlighted Path -->
+    <path d="M150,20 L70,100 L70,180 L150,260" fill="none" stroke="#3fb950" stroke-width="3" filter="url(#glow-lattice)"/>
+    
+    <!-- Nodes -->
+    <circle cx="150" cy="20" r="6" fill="#0097c4"/>
+    <circle cx="70" cy="100" r="6" fill="#0097c4"/>
+    <circle cx="150" cy="100" r="6" fill="#0097c4"/>
+    <circle cx="230" cy="100" r="6" fill="#0097c4"/>
+    <circle cx="70" cy="180" r="6" fill="#0097c4"/>
+    <circle cx="150" cy="180" r="6" fill="#0097c4"/>
+    <circle cx="230" cy="180" r="6" fill="#0097c4"/>
+    <circle cx="150" cy="260" r="8" fill="#3fb950" filter="url(#glow-lattice)"/>
+  </g>
+
+  <!-- MIDDLE: Scale Indicator -->
+  <g transform="translate(350, 220)">
+    <path d="M0,0 L100,0" stroke="#f5f9ff" stroke-width="2" stroke-dasharray="5 5" opacity="0.3"/>
+    <path d="M90,-10 L100,0 L90,10" fill="none" stroke="#f5f9ff" stroke-width="2" opacity="0.3"/>
+    <text x="50" y="-15" fill="#f5f9ff" font-family="sans-serif" font-size="10" text-anchor="middle" opacity="0.5">Scale to Production</text>
+  </g>
+
+  <!-- RIGHT SIDE: Complex n=8 -->
+  <g transform="translate(500, 80)">
+    <text x="200" y="-30" fill="#ff9f1c" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">COMPLEX (n=8)</text>
+    <text x="200" y="-10" fill="#f5f9ff" font-family="sans-serif" font-size="12" text-anchor="middle" opacity="0.5">256 States | Exponential Density</text>
+    
+    <!-- Faint Web of Edges -->
+    <g opacity="0.1" stroke="#0097c4" stroke-width="0.5">
+      <!-- Symbolic Web Structure -->
+      <path d="M200,20 L50,150 L200,350 L350,150 Z"/>
+      <path d="M200,20 L100,100 L300,100 Z"/>
+      <path d="M200,350 L100,270 L300,270 Z"/>
+      <path d="M50,150 L350,150"/>
+      <circle cx="200" cy="185" r="120" fill="none" stroke="#0097c4" stroke-dasharray="2 4"/>
+      <!-- Scattered tiny edges -->
+      <line x1="200" y1="20" x2="150" y2="60"/>
+      <line x1="200" y1="20" x2="250" y2="60"/>
+      <line x1="150" y1="60" x2="100" y2="150"/>
+      <line x1="250" y1="60" x2="300" y2="150"/>
+    </g>
+    
+    <!-- The "Guaranteed Thread" -->
+    <path d="M200,20 Q100,100 150,185 T200,350" fill="none" stroke="#3fb950" stroke-width="3" filter="url(#glow-lattice)"/>
+    <text x="130" y="160" fill="#3fb950" font-family="sans-serif" font-size="10" font-weight="bold">THE MONOTONIC PATH</text>
+    
+    <!-- Cloud of tiny nodes -->
+    <g opacity="0.6">
+      <!-- Just a representative sample of nodes -->
+      <circle cx="200" cy="20" r="3" fill="#0097c4"/>
+      <circle cx="150" cy="60" r="2" fill="#0097c4"/>
+      <circle cx="250" cy="60" r="2" fill="#0097c4"/>
+      <circle cx="100" cy="150" r="2" fill="#0097c4"/>
+      <circle cx="300" cy="150" r="2" fill="#0097c4"/>
+      <circle cx="150" cy="270" r="2" fill="#0097c4"/>
+      <circle cx="250" cy="270" r="2" fill="#0097c4"/>
+      <circle cx="200" cy="350" r="6" fill="#3fb950" filter="url(#glow-lattice)"/>
+      
+      <!-- More scattered nodes for density -->
+      <circle cx="180" cy="120" r="1" fill="#0097c4"/><circle cx="220" cy="120" r="1" fill="#0097c4"/>
+      <circle cx="140" cy="140" r="1" fill="#0097c4"/><circle cx="260" cy="140" r="1" fill="#0097c4"/>
+      <circle cx="190" cy="200" r="1" fill="#0097c4"/><circle cx="210" cy="200" r="1" fill="#0097c4"/>
+      <circle cx="170" cy="230" r="1" fill="#0097c4"/><circle cx="230" cy="230" r="1" fill="#0097c4"/>
+    </g>
+  </g>
+  
+  <!-- Caption -->
+  <text x="450" y="470" fill="#f5f9ff" font-family="sans-serif" font-size="14" text-anchor="middle" opacity="0.7">
+    "As n increases, the search space grows exponentially—but the length of the path to the exit remains linear."
+  </text>
+</svg>
