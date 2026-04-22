@@ -12,6 +12,9 @@
         <link rel="manifest" href="{{ .Site.BaseURL }}favicon_io/site.webmanifest">        
         <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
+ 
+        {{ template "_internal/opengraph.html" . }}
+        {{ template "_internal/twitter_cards.html" . }}
         <style>
             html, body {
                 background-color: #011627;

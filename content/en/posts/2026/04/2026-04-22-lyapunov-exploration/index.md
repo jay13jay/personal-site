@@ -10,6 +10,7 @@ tags:
   - "latent-space"
 description: "A deep dive into why mathematical stability and the Manifold Hypothesis are the keys to ending 'vibes-based' AI and achieving grounded, reliable outputs."
 math: true
+images: ["images/hero-convergence.svg"]
 ---
 
 ![From unbounded iteration to mathematically guaranteed convergence — moving from statistical plausibility to deterministic rigor.](images/hero-convergence.svg)
